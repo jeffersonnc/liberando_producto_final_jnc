@@ -46,3 +46,12 @@ class SimpleServer:
         # Increment counter used for register the total number of calls in the main endpoint
         MAIN_ENDPOINT_REQUESTS.inc()
         return {"msg": "Hello World"}
+    
+    @app.get("/online")
+    async def status_check():
+        """Implement health check endpoint"""
+        # Increment counter used for register the total number of calls in the webserver
+        REQUESTS.inc()
+        # Increment counter used for register the requests to healtcheck endpoint
+        HEALTHCHECK_REQUESTS.inc()
+        return {"online": "ok"}
