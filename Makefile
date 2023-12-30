@@ -5,7 +5,7 @@ PIP		= $(VENV)/bin/pip
 # Variables used to configure docker images
 IMAGE_REGISTRY_DOCKERHUB 	?= jeffersonnc
 IMAGE_REGISTRY_GHCR			?= ghcr.io
-IMAGE_REPO					= jeffersonnc
+IMAGE_REPO					?= jeffersonnc
 IMAGE_NAME					?= liberando_producto_final_jnc
 VERSION						?= develop
 
