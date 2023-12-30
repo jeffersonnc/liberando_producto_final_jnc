@@ -49,4 +49,3 @@ docker-build-ghcr: ## Build image for GHCR
 publish-ghcr: docker-build-ghcr ## Publish image to GHCR
 	docker push $(IMAGE_GHCR)
 	docker push $(IMAGE_GHCR_LATEST)
-
