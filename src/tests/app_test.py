@@ -35,5 +35,5 @@ class TestSimpleServer:
         response = client.get("online")
 
         assert response.status_code == 200
-        assert response.json() == {"msg": "Hello World"}
+        assert response.json() == {"online": "ok"}
 
