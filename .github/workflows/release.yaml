@@ -1,36 +1,43 @@
-name: release-build
+name: Release
 
 on:
   push:
-    tags:
-      - 'v*'
-    
+    branches:
+      - main
+permissions:
+  contents: write
+  packages: write
+  pull-requests: read
+
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Unshallow
-        run: git fetch --prune --unshallow
-
-      - name: Get the version to publish
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/v}
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Docker Login in GHCR
-        uses: docker/login-action@v1
-        id: configure-login-ghcr
+      - name: Install nodejs
+        uses: actions/setup-node@v3
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          node-version: "19"
 
-      - name: Build and push Docker image
-        run: make publish
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - uses: actions/cache@v3
+        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Run semantic release
+        run: |
+          npm install
+          npx multi-semantic-release
         env:
-          VERSION: ${{ steps.get_version.outputs.VERSION }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
