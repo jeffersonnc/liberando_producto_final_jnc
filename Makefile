@@ -13,7 +13,7 @@ VERSION						?= develop
 IMAGE 				= $(IMAGE_REGISTRY_DOCKERHUB)/$(IMAGE_NAME):$(VERSION)
 IMAGE_LATEST 		= $(IMAGE_REGISTRY_DOCKERHUB)/$(IMAGE_NAME):latest
 IMAGE_GHCR			= $(IMAGE_REGISTRY_GHCR)/$(IMAGE_REPO)/$(IMAGE_NAME):$(VERSION)
-IMAGE_GHRC_LATEST	= $(IMAGE_REGISTRY_GHCR)/$(IMAGE_REPO)/$(IMAGE_NAME):latest
+IMAGE_GHCR_LATEST	= $(IMAGE_REGISTRY_GHCR)/$(IMAGE_REPO)/$(IMAGE_NAME):latest
 
 .PHONY: run
 run: $(VENV)/bin/activate
@@ -34,11 +34,18 @@ $(VENV)/bin/activate: requirements.txt
 
 .PHONY: docker-build
 docker-build: ## Build image
-	docker build -t $(IMAGE) -t $(IMAGE_LATEST) -t $(IMAGE_GHCR) -t $(IMAGE_GHRC_LATEST) .
+	docker build -t $(IMAGE) -t $(IMAGE_LATEST) .
 
 .PHONY: publish
 publish: docker-build ## Publish image
 	docker push $(IMAGE)
 	docker push $(IMAGE_LATEST)
+
+.PHONY: docker-build-ghcr
+docker-build-ghcr: ## Build image for GHCR
+	docker build -t $(IMAGE_GHCR) -t $(IMAGE_GHCR_LATEST) .
+
+.PHONY: publish-ghcr
+publish-ghcr: docker-build-ghcr ## Publish image to GHCR
 	docker push $(IMAGE_GHCR)
-	docker push $(IMAGE_GHRC_LATEST)
+	docker push $(IMAGE_GHCR_LATEST)
