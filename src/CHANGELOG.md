@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.1.0...v1.2.0) (2024-01-05)
+
+
+### Features
+
+* deploy ([c64d588](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/c64d588f5b0439753aa01b42dc3e110c5392eda7))
+
 # [1.1.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.0.0...v1.1.0) (2024-01-05)
 
 
