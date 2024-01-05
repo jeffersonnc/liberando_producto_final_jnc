@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.0.0...v1.1.0) (2024-01-05)
+
+
+### Features
+
+* change image registry dockerhub ([7832d25](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/7832d2500e9ec5370a9400622a57e26d14f40a50))
+
 # 1.0.0 (2024-01-05)
 
 
