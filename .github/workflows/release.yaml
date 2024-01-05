@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./src
+        working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -60,6 +60,10 @@ jobs:
 
       - name: Create empty semantic_release_version.txt file
         run: touch semantic_release_version.txt
+
+      - name: Display semantic_release_version.txt
+        run: cat semantic_release_version.txt
+      
 
       - name: Release
         id: semantic_release
