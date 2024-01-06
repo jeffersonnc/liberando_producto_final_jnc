@@ -159,7 +159,7 @@
             "refId": "A"
           }
         ],
-        "title": "Number of calls to create student",
+        "title": "Number of calls online_check",
         "type": "stat"
       },
       {
