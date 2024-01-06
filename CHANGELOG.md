@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.5.0...v1.6.0) (2024-01-06)
+
+
+### Features
+
+* Add new images and update custom dashboard title ([4ed55ae](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/4ed55ae1619d1cd2c2e9f2fbdadf97ec92890148))
+
 # [1.5.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.4.0...v1.5.0) (2024-01-06)
 
 
