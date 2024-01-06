@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.4.0...v1.5.0) (2024-01-06)
+
+
+### Features
+
+* Update image tag and add online check endpoint ([82350ee](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/82350eee3db2291baec1bb30b36f265d40781437))
+
 # [1.4.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.3.0...v1.4.0) (2024-01-05)
 
 
