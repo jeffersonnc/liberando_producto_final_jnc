@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.8.0...v1.9.0) (2024-01-07)
+
+
+### Features
+
+* Update image tag to "latest" in values.yaml ([4187770](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/41877706a46c788c0091e91a70518afecc031fa5))
+
 # [1.8.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.7.0...v1.8.0) (2024-01-07)
 
 
