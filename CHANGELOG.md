@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.7.0...v1.8.0) (2024-01-07)
+
+
+### Features
+
+* Update test method name in app_test.py ([b2e189f](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/b2e189f6bcebbecd735d7e18c408b5cbab0f494f))
+
 # [1.7.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.6.0...v1.7.0) (2024-01-07)
 
 
