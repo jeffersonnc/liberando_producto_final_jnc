@@ -290,8 +290,7 @@ Es posible ejecutar los tests de diferentes formas:
 
         ![Slack create channel](./img/slack_create_channel.png)
 
-    2. Introducir el nombre para el canal que se utilizará para el envío de notificaciones relacionadas con alarmas, por ejemplo `alarms-notifications-keepcoding-devops-8`, añadiendo opcionalmente una descripción para el propósito del canal. Se puede ver un ejemplo de esta configuración en la siguiente imagen.
-
+    2. Introducir el nombre para el canal que se utilizará para el envío de notificaciones relacionadas con alarmas, por ejemplo `alarms-liberando-producto-final-jnc`
         ![Slack configure channel](./img/slack_configure_channel.png)
 
     3. Una vez introducidos los datos hacer click en el botón `Crear` de color verde.
@@ -322,7 +321,7 @@ Es posible ejecutar los tests de diferentes formas:
 
         ![Slack create app add new webhook](./img/slack_create_app_add_new_webhook.png)
 
-    11. Aparecerá un menú emergente en el que será necesario seleccionar el canal al que enviar los mensajes que lleguen a través del webhook, para ello es necesario escoger el canal de nombre `alarms-notifications-keepcoding-devops-8` creado al inicio del laboratorio. Debería quedar por lo tanto algo como lo mostrado en la siguiente captura, donde se señala de forma clara este canal escogido.
+    11. Aparecerá un menú emergente en el que será necesario seleccionar el canal al que enviar los mensajes que lleguen a través del webhook, para ello es necesario escoger el canal de nombre `alarms-liberando-producto-final-jnc` creado al inicio del laboratorio. Debería quedar por lo tanto algo como lo mostrado en la siguiente captura, donde se señala de forma clara este canal escogido.
 
         ![Slack create app add new webhook configure channel](./img/slack_create_app_add_new_webhook_configure_channel.png)
 
@@ -407,7 +406,7 @@ alertmanager:
 
 ### Despliegue de aplicación simple-fast-api
 
-1. Se ha creado un helm chart en la carpeta `fast-api-webapp` para la aplicación desarrollada en el laboratorio 1, en la cual se han realizado modificaciones respecto a las versiones anteriores para disponer de métricas mediante prometheus. Para desplegarlo es necesario realizar los siguientes pasos:
+1. Se ha creado un helm chart en la carpeta `fast-api-webapp`, dispone de métricas mediante prometheus. Para desplegarlo es necesario realizar los siguientes pasos:
 
     1. Desplegar el helm chart del operador de mongodb:
 

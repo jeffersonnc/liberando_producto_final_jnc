@@ -8,7 +8,7 @@ image:
   repository: jeffnacato/jeffersonnc_liberando_producto_final_jnc
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "1.2.0"
 
 # imagePullSecrets created to use Docker Hub Private Account
 imagePullSecrets:
