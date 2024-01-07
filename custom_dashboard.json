@@ -151,10 +151,10 @@
             },
             "editorMode": "code",
             "exemplar": true,
-            "expr": "sum(last_over_time(students_create_total[$__rate_interval])) by (pod)",
+            "expr": "sum(last_over_time(online_requests_total[$__rate_interval])) by (pod)",
             "format": "time_series",
             "interval": "",
-            "legendFormat": "{{pod}} calls create students",
+            "legendFormat": "{{pod}} calls online check",
             "range": true,
             "refId": "A"
           }
