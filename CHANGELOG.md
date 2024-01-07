@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.10.0...v1.11.0) (2024-01-07)
+
+
+### Features
+
+* Refactor code to improve performance and readability ([cef6f1f](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/cef6f1fc0bce50698663fed766ef77bcb10a0004))
+
 # [1.10.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.9.0...v1.10.0) (2024-01-07)
 
 
