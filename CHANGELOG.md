@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.9.0...v1.10.0) (2024-01-07)
+
+
+### Features
+
+* Update legend format in custom_dashboard.json ([bfc250c](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/bfc250c8ed11f8febbf5f2a859faddeb7b6a5d3b))
+
 # [1.9.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.8.0...v1.9.0) (2024-01-07)
 
 
