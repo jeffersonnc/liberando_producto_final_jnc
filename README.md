@@ -286,11 +286,11 @@ Es posible ejecutar los tests de diferentes formas:
 
   3. Crear una [aplicación de Slack](https://api.slack.com/apps?new_app=1) para el envío de notificaciones mediante webhook, para poder conectarlo con un canal que se debe crear, para realizar así el envío de las alarmas por parte de AlertManager que se utilizará posteriormente. Para ello desde la aplicación de Slack se deben realizar los siguientes pasos:
 
-    1. Desde la aplicación de Slack se crea el canal `alarms-liberando-producto-final-jnc` para el envío de alarmas, para ello fue necesario hacer click en el botón con el símbolo `+` en el panel lateral izquierdo de la sección `Canales`, aparecerá un desplegable con dos opciones, donde se deberá hacer click en la opción `Crear un canal`, tal y como se expone en la siguiente captura.
+    1. Desde la aplicación de Slack se crea el canal `jefferson-prometheus-alarms` para el envío de alarmas, para ello fue necesario hacer click en el botón con el símbolo `+` en el panel lateral izquierdo de la sección `Canales`, aparecerá un desplegable con dos opciones, donde se deberá hacer click en la opción `Crear un canal`, tal y como se expone en la siguiente captura.
 
         ![Slack create channel](./img/slack_create_channel.png)
 
-    2. Introducir el nombre para el canal que se utilizará para el envío de notificaciones relacionadas con alarmas, por ejemplo `alarms-liberando-producto-final-jnc`
+    2. Introducir el nombre para el canal que se utilizará para el envío de notificaciones relacionadas con alarmas, por ejemplo `jefferson-prometheus-alarms`
         ![Slack configure channel](./img/slack_configure_channel.png)
 
     3. Una vez introducidos los datos hacer click en el botón `Crear` de color verde.
@@ -452,7 +452,7 @@ alertmanager:
     5. Se puede comprobar a través de los endpoints disponibles del servicio creado:
 
         ```sh
-        kubectl -n mongodb get ep mongodb-sv
+        kubectl -n mongodb get ep mongodb-svc
         ```
 
         El resultado del comando anterior debería ser algo como lo siguiente:
@@ -512,6 +512,8 @@ alertmanager:
 
 8. Acceder al dashboard creado para observar las peticiones al servidor a través de la URL `http://localhost:3000/dashboards`, seleccionando una vez en ella la opción Import y en el siguiente paso seleccionar **Upload JSON File** y seleccionar el archivo presente en esta carpeta llamado `custom_dashboard.json`.
 
+    ![dashboard grafana](./img/dashboard-jnc.png)
+
 9. Obtener el pod creado en el paso 1 para poder lanzar posteriormente un comando de prueba de extres, así como seleccionarlo en el menú desplegable del panel de grafana:
 
    ```sh
@@ -522,7 +524,7 @@ alertmanager:
    Se debería obtener un resultado similar al siguiente:
 
    ```sh
-   my-app-fast-api-webapp-585bf945cc-lvvpv
+   my-app-fast-api-webapp-8898db4c5-dpj8w
    ```
 
 10. Utilizar el resultado obtenido en el paso anterior para seleccionar en el dashboard creado de grafana para seleccionar el pod del que obtener información, seleccionando este a través del menú desplegable de nombre `pod`.
@@ -596,79 +598,3 @@ alertmanager:
     minikube -p monitoring-demo stop
     ```
 
-## Creación de un dashboard de Grafana, con por lo menos lo siguiente:
-
-- Número de llamadas a los endpoints
-
-
-- Número de veces que la aplicación ha arrancado
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-A partir del ejemplo inicial descrito en los apartados anteriores es necesario realizar una serie de mejoras:
-
-Los requirimientos son los siguientes:
-
-X - Añadir por lo menos un nuevo endpoint a los existentes `/` y `/health`, un ejemplo sería `/bye` que devolvería `{"msg": "Bye Bye"}`, para ello será necesario añadirlo en el fichero [src/application/app.py](./src/application/app.py)
-
-X - Creación de tests unitarios para el nuevo endpoint añadido, para ello será necesario modificar el [fichero de tests](./src/tests/app_test.py)
-
-- Opcionalmente creación de helm chart para desplegar la aplicación en Kubernetes, se dispone de un ejemplo de ello en el laboratorio realizado en la clase 3
-
-x - Creación de pipelines de CI/CD en cualquier plataforma (Github Actions, Jenkins, etc) que cuenten por lo menos con las siguientes fases:
-
-  x - Testing: tests unitarios con cobertura. Se dispone de un [ejemplo con Github Actions en el repositorio actual](./.github/workflows/test.yaml)
-
-  x - Build & Push: creación de imagen docker y push de la misma a cualquier registry válido que utilice alguna estrategia de release para los tags de las vistas en clase, se recomienda GHCR ya incluido en los repositorios de Github. Se dispone de un [ejemplo con Github Actions en el repositorio actual](./.github/workflows/release.yaml)
-
-X - Configuración de monitorización y alertas:
-
-  X - Configurar monitorización mediante prometheus en los nuevos endpoints añadidos, por lo menos con la siguiente configuración:
-  X - Contador cada vez que se pasa por el/los nuevo/s endpoint/s, tal y como se ha realizado para los endpoints implementados inicialmente
-
-  x - Desplegar prometheus a través de Kubernetes mediante minikube y configurar alert-manager para por lo menos las siguientes alarmas, tal y como se ha realizado en el laboratorio del día 3 mediante el chart `kube-prometheus-stack`:
-    - Uso de CPU de un contenedor mayor al del límite configurado, se puede utilizar como base el ejemplo utilizado en el laboratorio 3 para mandar alarmas cuando el contenedor de la aplicación `fast-api` consumía más del asignado mediante request
-
-  x - Las alarmas configuradas deberán tener severity high o critical
-
-  x - Crear canal en slack `<nombreAlumno>-prometheus-alarms` y configurar webhook entrante para envío de alertas con alert manager
-
-  x - Alert manager estará configurado para lo siguiente:
-   x - Mandar un mensaje a Slack en el canal configurado en el paso anterior con las alertas con label "severity" y "critical"
-   x - Deberán enviarse tanto alarmas como recuperación de las mismas
-   x - Habrá una plantilla configurada para el envío de alarmas
-
-    Para poder comprobar si esta parte funciona se recomienda realizar una prueba de estres, como la realizada en el laboratorio 3 a partir del paso 8.
-
-  - Creación de un dashboard de Grafana, con por lo menos lo siguiente:
-    - Número de llamadas a los endpoints
-    - Número de veces que la aplicación ha arrancado
-
-## Entregables
-
-Se deberá entregar mediante un repositorio realizado a partir del original lo siguiente:
-
-- Código de la aplicación y los tests modificados
-- Ficheros para CI/CD configurados y ejemplos de ejecución válidos
-- Ficheros para despliegue y configuración de prometheus de todo lo relacionado con este, así como el dashboard creado exportado a `JSON` para poder reproducirlo
-- `README.md` donde se explique como se ha abordado cada uno de los puntos requeridos en el apartado anterior, con ejemplos prácticos y guía para poder reproducir cada uno de ellos
