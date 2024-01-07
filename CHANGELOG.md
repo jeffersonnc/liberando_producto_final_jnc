@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.11.0...v1.12.0) (2024-01-07)
+
+
+### Features
+
+* Update Slack channel and webhook configuration ([3b49e08](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/3b49e087888e8a0dbbcec663a271db2abd9588e0))
+
 # [1.11.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.10.0...v1.11.0) (2024-01-07)
 
 
