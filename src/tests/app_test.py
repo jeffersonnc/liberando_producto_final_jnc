@@ -30,8 +30,8 @@ class TestSimpleServer:
         assert response.json() == {"msg": "Hello World"}
 
     @pytest.mark.asyncio
-    async def read_status_test(self):
-        """Tests the main endpoint"""
+    async def read_online_test(self):
+        """Tests the online endpoint"""
         response = client.get("online")
 
         assert response.status_code == 200
