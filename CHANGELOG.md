@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.6.0...v1.7.0) (2024-01-07)
+
+
+### Features
+
+* Update Slack channel name for alarm notifications ([4db1014](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/4db1014eec35e5870b40257a8f2de43c478d95eb))
+
 # [1.6.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.5.0...v1.6.0) (2024-01-06)
 
 
