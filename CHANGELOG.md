@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.12.0...v1.13.0) (2024-01-08)
+
+
+### Features
+
+* Update Slack webhook and channel in values.yaml ([d2b03b0](https://github.com/jeffersonnc/liberando_producto_final_jnc/commit/d2b03b0beede08e3c74766172b792f6ab5017efd))
+
 # [1.12.0](https://github.com/jeffersonnc/liberando_producto_final_jnc/compare/v1.11.0...v1.12.0) (2024-01-07)
 
 
